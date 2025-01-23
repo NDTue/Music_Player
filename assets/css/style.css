@@ -1,0 +1,387 @@
+:root {
+  --primary-color: #ec1f55;
+  --text-color: #333;
+  --secondary-color: #dedcdc;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #ede8e8;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.player {
+  position: relative;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.player .icon-pause {
+  display: none;
+}
+
+.player.playing .icon-pause {
+  display: inline-block;
+}
+
+.player.playing .icon-play {
+  display: none;
+}
+
+.dashboard {
+  padding: 16px 16px 14px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 60%;
+  border-bottom: 1px solid #ebebeb;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+header h4 {
+  color: var(--primary-color);
+  font-size: 12px;
+}
+
+header h2 {
+  color: var(--text-color);
+  font-size: 20px;
+}
+
+/* header wrap */
+.header-wrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-wrap .btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+}
+.header-wrap .btn:hover{
+  background-color: var(--secondary-color); /* Thêm màu nền nhạt để rõ hơn */
+  box-shadow: 0 4px 8px rgba(82, 35, 35, 0.2); 
+}
+.volume-wrap{
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: none;
+  margin-top: 8px;
+}
+.volume-range{
+  accent-color: var(--primary-color);
+  height: 6em;
+  writing-mode: vertical-lr;
+  direction: rtl;
+  vertical-align: bottom;
+}
+
+.setting-list{
+  position: absolute;
+  background-color: #fff;
+  width: 140px;
+  top: 100%;
+  right: -32%;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  display: none;
+}
+.setting-item{
+  font-size: 14px;
+  padding: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.theme-icon{
+  margin-left: 1em;
+}
+.setting-item:hover{
+  background-color: var(--secondary-color);
+}
+
+
+
+/* CD */
+.cd {
+  display: flex;
+  margin: auto;
+  width: 200px;
+}
+
+.cd-thumb {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  background-size: cover;
+  margin: auto;
+}
+
+/* CONTROL */
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 18px 0 8px 0;
+}
+
+
+.control .btn {
+  color: #666;
+  padding: 12px;
+  font-size: 18px;
+}
+
+.control .btn:hover {
+  cursor: pointer;
+  /* background-color: #CCCCCC; Thêm màu nền nhạt để rõ hơn */
+  background-color: #f0f0f0; /* Thêm màu nền nhạt để rõ hơn */
+  box-shadow: 0 4px 8px rgba(82, 35, 35, 0.2); 
+  /* border-radius: 50%; */
+}
+.control .btn-toggle-play:hover {
+  color: red;
+  background-color: #ebc9d3;
+}
+
+.control .btn.active {
+  color: var(--primary-color);
+}
+
+.control .btn-toggle-play {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+
+.progress {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 8px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 8px;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* PLAYLIST */
+.playlist {
+  margin-top: 408px;
+  padding: 12px;
+  background-color: #f2d0d9;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+.song .option:hover{
+
+}
+
+.song:hover {
+  cursor: pointer;
+  background-color: #f384a2;
+}
+
+.song:hover .title,
+.song:hover .author,
+.song:hover .option {
+  color: #fff;
+}
+
+.song.active {
+  background-color: var(--primary-color);
+}
+
+/* ':active' - Khi click vào class song */
+.song:active {
+  opacity: 0.7;
+  /*Tạo cảm giác khi nhấn song*/
+}
+
+.song.active .option,
+.song.active .author,
+.song.active .title {
+  color: #fff;
+}
+
+.song .thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 0 8px;
+}
+
+.song .body {
+  flex: 1;
+  padding: 0 16px;
+}
+
+.song .title {
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.song .author {
+  font-size: 12px;
+  color: #999;
+}
+
+.song .option {
+  padding: 16px 8px;
+  color: #999;
+  font-size: 18px;
+}
+
+/* #region Dark mode theme */
+/* .dark {
+  background-color: #03003f;
+} */
+.dark {
+  background-color: #1a1a1a;
+  color: #f1f1f1;
+}
+
+.dark .dashboard {
+  background-color: #292929;
+  border-color: #3a3a3a;
+}
+
+.dark header h4 {
+  color: #ff5f5f;
+}
+
+.dark header h2 {
+  color: #f1f1f1;
+}
+
+.dark .cd-thumb {
+  border: 2px solid #f1f1f1;
+}
+
+/* header-wrap */
+.dark .header-wrap .btn:hover{
+  background-color: var(--primary-color);
+}
+.dark .setting-list {
+  background-color: #353232;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+.dark .setting-list:hover{
+  background-color: var(--primary-color);
+}
+
+.dark .setting-item {
+  color: #f1f1f1;
+}
+
+.dark .setting-item:hover {
+  background-color: var(--primary-color);
+}
+
+/* Control */
+.dark .control .btn {
+  color: #adaaaa;
+}
+
+.dark .control .btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.dark .control .btn-toggle-play {
+  color: #fff;
+  background-color: #ff5f5f;
+}
+.dark .control .btn-toggle-play:hover{
+  color: var(--primary-color);
+  background-color: #fff;
+}
+
+.dark .control .btn.active{
+  color: var(--primary-color);
+}
+
+/* Progress */
+.dark .progress {
+  background: #3a3a3a;
+}
+
+.dark .progress::-webkit-slider-thumb {
+  background-color: #ff5f5f;
+}
+
+/* Playlist */
+.dark .playlist {
+  background-color: #292929;
+}
+
+.dark .song {
+  background-color: #3a3a3a;
+}
+
+.dark .song:hover {
+  background-color: #ff5f5f;
+}
+
+.dark .song .title,
+.dark .song .author,
+.dark .song .option {
+  color: #f1f1f1;
+}
+
+.dark .song.active {
+  background-color: #ff5f5f;
+}
+
+.dark .song.active .title,
+.dark .song.active .author,
+.dark .song.active .option {
+  color: #fff;
+}
+
+/* #endregion Dark mode theme */
