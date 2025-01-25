@@ -71,13 +71,22 @@ header h2 {
 }
 .header-wrap .btn {
   position: relative;
-  display: inline-block;
   padding: 10px;
   cursor: pointer;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  width: 56px;
 }
 .header-wrap .btn:hover{
-  background-color: var(--secondary-color); /* Thêm màu nền nhạt để rõ hơn */
-  box-shadow: 0 4px 8px rgba(82, 35, 35, 0.2); 
+  background-color: var(--secondary-color); 
+  box-shadow: 0 4px 8px rgba(82, 35, 35, 0.2);
+}
+.header-wrap .btn:active{
+  background: rgba(0, 0, 0, 0.05);
 }
 .volume-wrap{
   position: absolute;
@@ -85,7 +94,7 @@ header h2 {
   right: 0;
   text-align: center;
   display: none;
-  margin-top: 8px;
+  margin-top: 140px;
 }
 .volume-range{
   accent-color: var(--primary-color);
@@ -120,8 +129,6 @@ header h2 {
   background-color: var(--secondary-color);
 }
 
-
-
 /* CD */
 .cd {
   display: flex;
@@ -148,25 +155,35 @@ header h2 {
 
 
 .control .btn {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #666;
-  padding: 12px;
   font-size: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex: 0 0 auto;
 }
 
 .control .btn:hover {
   cursor: pointer;
-  /* background-color: #CCCCCC; Thêm màu nền nhạt để rõ hơn */
-  background-color: #f0f0f0; /* Thêm màu nền nhạt để rõ hơn */
+  background-color: #f0f0f0; 
   box-shadow: 0 4px 8px rgba(82, 35, 35, 0.2); 
-  /* border-radius: 50%; */
 }
 .control .btn-toggle-play:hover {
   color: red;
   background-color: #ebc9d3;
 }
-
+.control .btn:not(.btn-toggle-play):active {
+  background: rgba(0, 0, 0, 0.05);
+}
 .control .btn.active {
   color: var(--primary-color);
+}
+.control .btn:active {
+  opacity: 0.7;
 }
 
 .control .btn-toggle-play {
@@ -279,9 +296,6 @@ header h2 {
 }
 
 /* #region Dark mode theme */
-/* .dark {
-  background-color: #03003f;
-} */
 .dark {
   background-color: #1a1a1a;
   color: #f1f1f1;
@@ -326,11 +340,12 @@ header h2 {
 
 /* Control */
 .dark .control .btn {
-  color: #adaaaa;
+  /* color: #adaaaa; */
+  color: #fff;
 }
 
 .dark .control .btn:hover {
-  background-color: var(--secondary-color);
+  background-color: #adaaaa;
 }
 
 .dark .control .btn-toggle-play {
@@ -365,7 +380,7 @@ header h2 {
 }
 
 .dark .song:hover {
-  background-color: #ff5f5f;
+  background-color: #f384a2;
 }
 
 .dark .song .title,
@@ -375,7 +390,7 @@ header h2 {
 }
 
 .dark .song.active {
-  background-color: #ff5f5f;
+  background-color: var(--primary-color);
 }
 
 .dark .song.active .title,
